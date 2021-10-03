@@ -39,7 +39,8 @@ public class ContactBook {
             contacts[i] = contacts[i+1];
         counter--;
     }
-    //idfk
+
+    //Add pelo ari
     public String getNameByNumber (int phone){
         int aux = searchIndexByNumber(phone);
         if (aux >= 0) {
@@ -63,6 +64,8 @@ public class ContactBook {
         if (found) result = i;
         return result;
     }
+    //Add pelo ari
+
 
     //Pre: name != null && hasContact(name)
     public int getPhone(String name) {
@@ -117,4 +120,18 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+    //Add pelo Ze
+    public boolean sameNumber() {
+        boolean res = false;
+        for (int i = 0; i < counter; i++) {
+            for (int j = i+1; j < counter; j++) {
+                if (contacts[i].getPhone() == contacts[j].getPhone()) {
+                    res = true;
+                    break;
+                }
+            }
+        }
+        return res;
+    }
+    //Add pelo Ze
 }
