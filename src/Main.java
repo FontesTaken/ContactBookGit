@@ -55,6 +55,12 @@ public class Main {
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
                     break;
+                case EXISTANT_PHONE:
+                    existantPhone(cBook);
+                    break;
+                case GIVEN_NUMBER:
+                    givenNumber(in, cBook);
+                    break;
                 default:
                     System.out.println(COMMAND_ERROR);
             }
@@ -64,6 +70,27 @@ public class Main {
         System.out.println(QUIT_MSG);
         System.out.println();
         in.close();
+    }
+
+    private static void givenNumber(Scanner in, ContactBook cBook) {
+        int input;
+        input = in.nextInt();
+        if (cBook.getNameByNumber(input) == null) {
+            System.out.println("Phone number does not exist.");
+        }
+        else {
+            System.out.println(cBook.getNameByNumber(input));
+        }
+        in.nextLine();
+    }
+
+    private static void existantPhone(ContactBook cBook) {
+        if (cBook.sameNumber()) {
+            System.out.println("There are contacts that share phone numbers.");
+        }
+        else {
+            System.out.println("All contacts have different phone numbers");
+        }
     }
 
     private static String getCommand(Scanner in) {
