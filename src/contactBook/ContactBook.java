@@ -39,6 +39,23 @@ public class ContactBook {
             contacts[i] = contacts[i+1];
         counter--;
     }
+    //idfk
+    public String getNameByNumber (int phone){
+        return contacts[searchIndexByNumber(phone)].getName();
+    }
+
+    private int searchIndexByNumber(int phone) {
+        int i = 0;
+        int result = -1;
+        boolean found = false;
+        while (i<counter && !found)
+            if (contacts[i].getPhone()==phone)
+                found = true;
+            else
+                i++;
+        if (found) result = i;
+        return result;
+    }
 
     //Pre: name != null && hasContact(name)
     public int getPhone(String name) {
